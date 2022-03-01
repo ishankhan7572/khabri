@@ -33,6 +33,15 @@ class _ArticleViewState extends State<ArticleView> {
         width: MediaQuery.of(context).size.width,
         child: WebView(
           initialUrl:widget.blogUrl ,
+          allowsInlineMediaPlayback: true ,
+          zoomEnabled: true ,
+          onProgress: (int progress){
+            print('WebView is loading (progress :$progress%)');
+          },
+          javascriptChannels: <JavascriptChannel>{
+            _toasterJavascriptChannel(context),
+          },
+          javascriptMode: JavascriptMode.unrestricted,
           onWebViewCreated: ((WebViewController webviewController){
             _completer.complete(webviewController);
 
@@ -41,4 +50,14 @@ class _ArticleViewState extends State<ArticleView> {
       ),
     );
   }
+}
+JavascriptChannel _toasterJavascriptChannel(BuildContext context) {
+  return JavascriptChannel(
+      name: 'Toaster',
+      onMessageReceived: (JavascriptMessage message) {
+        // ignore: deprecated_member_use
+        Scaffold.of(context).showSnackBar(
+          SnackBar(content: Text(message.message)),
+        );
+      });
 }
