@@ -32,6 +32,7 @@ dependencies:
 
   http: ^0.13.4
   cached_network_image: ^3.2.0
+  webview_flutter: ^3.0.1
 #  webview: ^0.3.2
 #  android_webview: ^1.0.0
 #webview_flutter_android: ^2.8.3
