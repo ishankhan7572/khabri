@@ -19,13 +19,13 @@ class News{
 
             if(element["urlToImage"] != null && element['description'] != null  ) {
                ArticleModel articleModel = ArticleModel(
-                  title: element['title'],
-                  author: element["author"],
-                  description: element["description"],
-                  url: element["url"],
-                  urlToImage: element["urlToImage"],
+                  title: element['title'] ?? "NA",
+                  author: element["author"] ?? "NA",
+                  description: element["description"] ?? "NA",
+                  url: element["url"] ?? "NA",
+                  urlToImage: element["urlToImage"] ?? "NA",
                   // publishedAt: element["publishAt"],
-                  content: element["content"],
+                  content: element["content"] ?? "NA",
                );
                news.add(articleModel);
             }
