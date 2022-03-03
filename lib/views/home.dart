@@ -1,10 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:khabri/helper/data.dart';
 import 'package:khabri/helper/news.dart';
 import 'package:khabri/models/article_model.dart';
 import 'package:khabri/models/category_Model.dart';
 import 'package:khabri/views/article_view.dart';
+import 'package:khabri/views/category_news.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key, required String title}) : super(key: key);
@@ -23,7 +25,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
 
-    // _loading = true;
+    _loading = true;
     // TODO: implement initState
     super.initState();
     categories = getCategories();
@@ -108,9 +110,9 @@ class _HomeState extends State<Home> {
 
 class CategoryTile extends StatelessWidget {
 
-  final imageUrl , categoryName;
+  final String imageUrl , categoryName;
 
-  CategoryTile({this.imageUrl,this.categoryName});
+  CategoryTile({required this.imageUrl,required this.categoryName});
   // const CategoryTile({Key? key}) : super(key: key);
 
 
@@ -118,7 +120,11 @@ class CategoryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) => CategoryNews(
+              category: categoryName.toLowerCase(),
+          )
+        ));
       },
       child: Container(
         margin: EdgeInsets.only(right: 16),
@@ -134,7 +140,7 @@ class CategoryTile extends StatelessWidget {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(7),
-                color: Colors.green ,
+                color: Colors.black54 ,
               ),
               width: 120, height: 60,
 
