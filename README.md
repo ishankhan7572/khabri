@@ -1,16 +1,30 @@
-# khabri
 
-A new Flutter project.
+# Project Title
 
-## Getting Started
+A news app where we can observe news on the home page, and we have categories option to watch top headlines based on 
+famous categories.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Installation
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Install my-project : flutter pub get
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+  npm install my-project
+  cd my-project
+```
+    
+## Usage/Examples
+
+```javascript
+flutter run
+```
+
+
+## Screenshots
+
+![Screenshot_20220304-010152](https://user-images.githubusercontent.com/86646962/156645860-cce8c77e-30bb-4914-922d-f311e061b5e5.jpg)
+
+![Screenshot_20220304-010203](https://user-images.githubusercontent.com/86646962/156646267-95934fdf-31f3-47b1-b93b-3d6e6c678817.jpg)
+
+![Screenshot_20220304-010137](https://user-images.githubusercontent.com/86646962/156646156-250a4e3a-86e3-482a-929a-debee76053ac.jpg)
