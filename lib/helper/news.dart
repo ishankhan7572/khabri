@@ -37,3 +37,38 @@ class News{
    }
 
 }
+
+class CategoryNewsClass{
+   List<ArticleModel> news = [];
+
+   Future<void> getNews(String category) async{
+      var url = "https://newsapi.org/v2/top-headlines?category=$category&country=in&category=business&apiKey=9b1a07a6e4c646c4b44510186f0d2faa";
+
+
+      var response = await http.get(Uri.parse(url));
+      // var response = await http.get(url);
+      var jsonData = jsonDecode(response.body);
+      if(jsonData['status'] == "ok") {
+
+         jsonData["articles"].forEach((element){
+
+            if(element["urlToImage"] != null && element['description'] != null  ) {
+               ArticleModel articleModel = ArticleModel(
+                  title: element['title'] ?? "NA",
+                  author: element["author"] ?? "NA",
+                  description: element["description"] ?? "NA",
+                  url: element["url"] ?? "NA",
+                  urlToImage: element["urlToImage"] ?? "NA",
+                  // publishedAt: element["publishAt"],
+                  content: element["content"] ?? "NA",
+               );
+               news.add(articleModel);
+            }
+
+         });
+
+
+      }
+   }
+
+}
